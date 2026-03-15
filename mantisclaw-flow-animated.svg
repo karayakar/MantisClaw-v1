@@ -1,0 +1,345 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">MantisClaw — How It Works (Animated)</title>
+  <desc id="desc">Animated flow diagram showing the MantisClaw autonomous agent execution pipeline: WhatsApp ingestion, context assembly, AI tool-call loop, Python/Browser/Skills execution, self-healing, and response delivery.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#09101c"/>
+    </linearGradient>
+
+    <radialGradient id="glowA" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#6be6ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#6be6ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#8b6cff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#8b6cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowC" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="nodeShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#020817" flood-opacity="0.5"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#6be6ff" flood-opacity="0.06"/>
+    </filter>
+
+    <linearGradient id="nodeStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#294268"/>
+      <stop offset="100%" stop-color="#1e3151"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3e577f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#86a9db" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#3e577f" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="loopGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="packetGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="nodeAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#67e8f9"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="greenAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="orangeAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+
+    <style>
+      .title{font:700 30px Inter,Segoe UI,Arial,sans-serif;fill:#eef6ff;letter-spacing:.3px}
+      .subtitle{font:500 14px Inter,Segoe UI,Arial,sans-serif;fill:#8ea6c9}
+      .section{font:700 12px Inter,Segoe UI,Arial,sans-serif;fill:#a7bddf;letter-spacing:1.6px}
+      .node-label{font:700 18px Inter,Segoe UI,Arial,sans-serif;fill:#f8fbff}
+      .node-desc{font:500 12px Inter,Segoe UI,Arial,sans-serif;fill:#9bb1d3}
+      .mini-label{font:700 14px Inter,Segoe UI,Arial,sans-serif;fill:#edf6ff}
+      .mini-desc{font:500 11px Inter,Segoe UI,Arial,sans-serif;fill:#94accf}
+      .chip-text{font:600 11px Inter,Segoe UI,Arial,sans-serif;fill:#a9c1e5}
+      .loop-label{font:800 13px Inter,Segoe UI,Arial,sans-serif;fill:#34d399;letter-spacing:1px}
+      .line{fill:none;stroke:url(#lineGrad);stroke-width:2.8;stroke-linecap:round}
+      .line-soft{fill:none;stroke:#1f3558;stroke-opacity:.7;stroke-width:7;stroke-linecap:round}
+      .line-loop{fill:none;stroke:url(#loopGrad);stroke-width:2.8;stroke-linecap:round}
+      .line-loop-soft{fill:none;stroke:#0d3d2e;stroke-opacity:.6;stroke-width:7;stroke-linecap:round}
+      .node-box{fill:rgba(9,19,35,.88);stroke:url(#nodeStroke);stroke-width:1.6;filter:url(#nodeShadow)}
+      .mini-box{fill:rgba(8,17,31,.92);stroke:#1f3558;stroke-width:1.2;filter:url(#nodeShadow)}
+      .chip{fill:rgba(10,26,47,.96);stroke:#213858;stroke-width:1}
+      .accent-line{stroke:url(#nodeAccent);stroke-width:3.5;stroke-linecap:round}
+      .accent-green{stroke:url(#greenAccent);stroke-width:3.5;stroke-linecap:round}
+      .accent-orange{stroke:url(#orangeAccent);stroke-width:3.5;stroke-linecap:round}
+      .dashbox{fill:none;stroke:#223a5d;stroke-width:1.2;stroke-dasharray:7 7;rx:28}
+      .pulse{opacity:.92;filter:url(#softGlow)}
+      .pkt1{fill:url(#packetGrad);filter:url(#softGlow)}
+      .pkt2{fill:#8b5cf6;filter:url(#softGlow)}
+      .pkt3{fill:#67e8f9;filter:url(#softGlow)}
+      .pkt-green{fill:#34d399;filter:url(#softGlow)}
+      .pkt-orange{fill:#fb923c;filter:url(#softGlow)}
+      @keyframes blink{0%,100%{opacity:.5}50%{opacity:1}}
+      .blink{animation:blink 3s ease-in-out infinite}
+      @keyframes loopPulse{0%,100%{stroke-opacity:.35}50%{stroke-opacity:.85}}
+      .loop-border{animation:loopPulse 4s ease-in-out infinite}
+    </style>
+
+    <!-- ═══ Motion Paths ═══ -->
+    <!-- Row 1: WhatsApp → Bridge → Context → AI Brain -->
+    <path id="p_wa_bridge" d="M 230 195 C 290 195, 310 195, 370 195"/>
+    <path id="p_bridge_ctx" d="M 550 195 C 610 195, 640 195, 700 195"/>
+    <path id="p_ctx_brain" d="M 870 195 C 920 195, 940 195, 980 195"/>
+
+    <!-- Brain → Tool Loop (down) -->
+    <path id="p_brain_loop" d="M 1085 260 C 1085 310, 1085 340, 1085 380"/>
+
+    <!-- Tool Loop → execution targets (fan-out) -->
+    <path id="p_loop_python" d="M 980 480 C 880 520, 750 560, 620 590"/>
+    <path id="p_loop_browser" d="M 1085 540 C 1085 580, 1085 608, 1085 640"/>
+    <path id="p_loop_skill" d="M 1190 480 C 1290 520, 1380 560, 1440 590"/>
+
+    <!-- Self-heal loop-back -->
+    <path id="p_heal_back" d="M 1085 720 C 1085 750, 1160 760, 1210 720 C 1260 680, 1250 580, 1210 540 C 1190 520, 1180 500, 1160 480"/>
+
+    <!-- Tool results → Brain (up) -->
+    <path id="p_results_brain" d="M 1085 380 C 1040 340, 1020 300, 1030 260"/>
+
+    <!-- Brain → Response -->
+    <path id="p_brain_response" d="M 980 220 C 870 250, 660 310, 500 395"/>
+    <!-- Response → WhatsApp -->
+    <path id="p_response_wa" d="M 390 420 C 310 380, 250 310, 175 260"/>
+
+    <!-- Schedule → Brain -->
+    <path id="p_sched_brain" d="M 1450 240 C 1350 240, 1280 230, 1190 210"/>
+
+    <!-- Python → File Output -->
+    <path id="p_python_file" d="M 530 665 C 440 695, 350 720, 270 740"/>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Ambient glows -->
+  <circle cx="180" cy="200" r="200" fill="url(#glowA)"/>
+  <circle cx="1085" cy="460" r="300" fill="url(#glowC)"/>
+  <circle cx="1450" cy="200" r="180" fill="url(#glowB)"/>
+  <circle cx="400" cy="420" r="160" fill="url(#glowA)"/>
+
+  <!-- Frame -->
+  <rect x="24" y="24" width="1552" height="852" rx="28" fill="none" stroke="#16263f" stroke-width="2"/>
+  <rect x="40" y="40" width="1520" height="820" rx="22" class="dashbox"/>
+
+  <!-- Title -->
+  <text x="68" y="82" class="title">How MantisClaw Works</text>
+  <text x="68" y="108" class="subtitle">From WhatsApp message to autonomous execution — single tool-call loop with self-healing, scheduled tasks, and file delivery</text>
+
+  <!-- Layer labels -->
+  <text x="78" y="155" class="section">MESSAGE INGESTION</text>
+  <text x="960" y="155" class="section">AI BRAIN</text>
+  <text x="930" y="380" class="section">TOOL-CALL LOOP (25 TURNS)</text>
+  <text x="68" y="570" class="section">EXECUTION TARGETS</text>
+  <text x="68" y="725" class="section">OUTPUT</text>
+
+  <!-- ══════ Connection underlays + lines ══════ -->
+  <use href="#p_wa_bridge" class="line-soft"/><use href="#p_wa_bridge" class="line"/>
+  <use href="#p_bridge_ctx" class="line-soft"/><use href="#p_bridge_ctx" class="line"/>
+  <use href="#p_ctx_brain" class="line-soft"/><use href="#p_ctx_brain" class="line"/>
+  <use href="#p_brain_loop" class="line-loop-soft"/><use href="#p_brain_loop" class="line-loop"/>
+  <use href="#p_loop_python" class="line-loop-soft"/><use href="#p_loop_python" class="line-loop"/>
+  <use href="#p_loop_browser" class="line-loop-soft"/><use href="#p_loop_browser" class="line-loop"/>
+  <use href="#p_loop_skill" class="line-loop-soft"/><use href="#p_loop_skill" class="line-loop"/>
+  <use href="#p_heal_back" class="line-soft"/><use href="#p_heal_back" class="line" style="stroke:#f59e0b;stroke-opacity:.6"/>
+  <use href="#p_results_brain" class="line-loop-soft"/><use href="#p_results_brain" class="line-loop"/>
+  <use href="#p_brain_response" class="line-soft"/><use href="#p_brain_response" class="line"/>
+  <use href="#p_response_wa" class="line-soft"/><use href="#p_response_wa" class="line"/>
+  <use href="#p_sched_brain" class="line-soft"/><use href="#p_sched_brain" class="line" style="stroke:#a78bfa;stroke-opacity:.6"/>
+  <use href="#p_python_file" class="line-soft"/><use href="#p_python_file" class="line"/>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- NODES                                      -->
+  <!-- ══════════════════════════════════════════ -->
+
+  <!-- 1. WhatsApp Users -->
+  <g transform="translate(60,160)">
+    <rect width="170" height="115" rx="22" class="node-box"/>
+    <line x1="20" y1="24" x2="150" y2="24" class="accent-line"/>
+    <text x="20" y="55" class="node-label">WhatsApp</text>
+    <text x="20" y="76" class="node-desc">Users &amp; Groups</text>
+    <text x="20" y="96" class="node-desc">Direct / Group messages</text>
+  </g>
+
+  <!-- 2. Bridge (whatsmeow) -->
+  <g transform="translate(370,160)">
+    <rect width="180" height="115" rx="22" class="node-box"/>
+    <line x1="20" y1="24" x2="160" y2="24" class="accent-line"/>
+    <text x="20" y="55" class="node-label">Bridge</text>
+    <text x="20" y="76" class="node-desc">whatsmeow WebSocket</text>
+    <text x="20" y="96" class="node-desc">Session &amp; device management</text>
+  </g>
+
+  <!-- 3. Context Assembly -->
+  <g transform="translate(700,160)">
+    <rect width="170" height="115" rx="22" class="node-box"/>
+    <line x1="20" y1="24" x2="150" y2="24" class="accent-line"/>
+    <text x="20" y="55" class="node-label">Context</text>
+    <text x="20" y="76" class="node-desc">Last 20 messages</text>
+    <text x="20" y="96" class="node-desc">Agent persona + scenario</text>
+  </g>
+
+  <!-- 4. AI Brain (Yapzek Service) -->
+  <g transform="translate(980,160)">
+    <rect width="210" height="100" rx="24" class="node-box" style="stroke:#059669;stroke-width:2"/>
+    <line x1="22" y1="24" x2="188" y2="24" class="accent-green"/>
+    <text x="22" y="55" class="node-label">Yapzek AI Brain</text>
+    <text x="22" y="76" class="node-desc">OpenAI / Ollama — callOpenAI()</text>
+    <text x="22" y="92" class="node-desc">Assembles tools + decides actions</text>
+  </g>
+
+  <!-- === TOOL-CALL LOOP BOX === -->
+  <rect x="920" y="390" width="340" height="165" rx="24" fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="8 5" class="loop-border"/>
+  <text x="940" y="414" class="loop-label">TOOL DISPATCH</text>
+
+  <!-- Tool chips inside loop -->
+  <g transform="translate(940,425)">
+    <rect width="82" height="28" rx="14" class="chip"/><text x="12" y="19" class="chip-text">run_python</text>
+    <rect x="92" width="72" height="28" rx="14" class="chip"/><text x="104" y="19" class="chip-text">browser_*</text>
+    <rect x="174" width="72" height="28" rx="14" class="chip"/><text x="188" y="19" class="chip-text">skill_*</text>
+    <rect y="36" width="98" height="28" rx="14" class="chip"/><text x="12" y="55" class="chip-text">send_file</text>
+    <rect x="108" y="36" width="108" height="28" rx="14" class="chip"/><text x="120" y="55" class="chip-text">create_schedule</text>
+    <rect y="72" width="120" height="28" rx="14" class="chip"/><text x="12" y="91" class="chip-text">create_playbook</text>
+    <rect x="130" y="72" width="108" height="28" rx="14" class="chip"/><text x="142" y="91" class="chip-text">save_setting</text>
+  </g>
+
+  <!-- 5. Python Kernel -->
+  <g transform="translate(470,590)">
+    <rect width="180" height="110" rx="22" class="mini-box"/>
+    <line x1="18" y1="22" x2="162" y2="22" style="stroke:#0ea5e9;stroke-width:3;stroke-linecap:round"/>
+    <text x="18" y="50" class="mini-label">Python Kernel</text>
+    <text x="18" y="70" class="mini-desc">Embedded interpreter + IPC</text>
+    <text x="18" y="88" class="mini-desc">SETTINGS injection, auto pip</text>
+  </g>
+
+  <!-- 6. Browser (Playwright) -->
+  <g transform="translate(970,650)">
+    <rect width="200" height="110" rx="22" class="mini-box"/>
+    <line x1="18" y1="22" x2="182" y2="22" class="accent-orange"/>
+    <text x="18" y="50" class="mini-label">Browser Agent</text>
+    <text x="18" y="70" class="mini-desc">Playwright + Chromium</text>
+    <text x="18" y="88" class="mini-desc">Persistent cookies, screenshots</text>
+  </g>
+
+  <!-- 7. Skill Engine -->
+  <g transform="translate(1340,590)">
+    <rect width="180" height="110" rx="22" class="mini-box"/>
+    <line x1="18" y1="22" x2="162" y2="22" style="stroke:#ec4899;stroke-width:3;stroke-linecap:round"/>
+    <text x="18" y="50" class="mini-label">Skill Engine</text>
+    <text x="18" y="70" class="mini-desc">Discover, build, register</text>
+    <text x="18" y="88" class="mini-desc">Self-heal 3 retries</text>
+  </g>
+
+  <!-- 8. Self-Heal -->
+  <g transform="translate(1190,700)">
+    <rect width="150" height="50" rx="16" class="chip" style="stroke:#f59e0b"/>
+    <text x="16" y="22" class="mini-label" style="fill:#fbbf24;font-size:12px">Self-Healing</text>
+    <text x="16" y="40" class="mini-desc">Error → Fix → Retry</text>
+  </g>
+
+  <!-- 9. Schedule Engine -->
+  <g transform="translate(1350,160)">
+    <rect width="180" height="105" rx="22" class="node-box"/>
+    <line x1="20" y1="24" x2="160" y2="24" style="stroke:#a78bfa;stroke-width:3;stroke-linecap:round"/>
+    <text x="20" y="55" class="node-label">Scheduler</text>
+    <text x="20" y="76" class="node-desc">Cron tasks — prompt / skill</text>
+    <text x="20" y="93" class="node-desc">Auto-trigger → AI Brain</text>
+  </g>
+
+  <!-- 10. Response Builder -->
+  <g transform="translate(310,375)">
+    <rect width="190" height="95" rx="22" class="node-box"/>
+    <line x1="20" y1="24" x2="170" y2="24" class="accent-line"/>
+    <text x="20" y="55" class="node-label">Response</text>
+    <text x="20" y="76" class="node-desc">Text → WhatsApp chat</text>
+    <text x="20" y="93" class="node-desc">Files auto-sent as attachment</text>
+  </g>
+
+  <!-- 11. File Output -->
+  <g transform="translate(100,730)">
+    <rect width="200" height="95" rx="22" class="mini-box"/>
+    <line x1="18" y1="22" x2="182" y2="22" class="accent-green"/>
+    <text x="18" y="50" class="mini-label">File Output</text>
+    <text x="18" y="70" class="mini-desc">Excel, Word, PPT, PDF, CSV</text>
+    <text x="18" y="88" class="mini-desc">Auto-detect → send to WhatsApp</text>
+  </g>
+
+  <!-- 12. PostgreSQL -->
+  <g transform="translate(700,310)">
+    <rect width="160" height="82" rx="18" class="mini-box"/>
+    <line x1="16" y1="20" x2="144" y2="20" style="stroke:#3b82f6;stroke-width:3;stroke-linecap:round"/>
+    <text x="16" y="46" class="mini-label">PostgreSQL</text>
+    <text x="16" y="66" class="mini-desc">Embedded DB — local-first</text>
+  </g>
+
+  <!-- ══════ Animated Packets ══════ -->
+  <!-- WhatsApp → Bridge -->
+  <circle r="5.5" class="pkt1 pulse"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#p_wa_bridge"/></animateMotion></circle>
+  <!-- Bridge → Context -->
+  <circle r="5" class="pkt3 pulse"><animateMotion dur="3.6s" begin="0.4s" repeatCount="indefinite"><mpath href="#p_bridge_ctx"/></animateMotion></circle>
+  <!-- Context → Brain -->
+  <circle r="5.5" class="pkt1 pulse"><animateMotion dur="2.8s" begin="0.8s" repeatCount="indefinite"><mpath href="#p_ctx_brain"/></animateMotion></circle>
+  <!-- Brain → Tool Loop -->
+  <circle r="5" class="pkt-green pulse"><animateMotion dur="2.2s" begin="0.3s" repeatCount="indefinite"><mpath href="#p_brain_loop"/></animateMotion></circle>
+  <!-- Tool results → Brain -->
+  <circle r="4.5" class="pkt-green pulse"><animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite"><mpath href="#p_results_brain"/></animateMotion></circle>
+  <!-- Loop → Python -->
+  <circle r="5" class="pkt3 pulse"><animateMotion dur="3.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#p_loop_python"/></animateMotion></circle>
+  <!-- Loop → Browser -->
+  <circle r="5" class="pkt-orange pulse"><animateMotion dur="3.0s" begin="0.9s" repeatCount="indefinite"><mpath href="#p_loop_browser"/></animateMotion></circle>
+  <!-- Loop → Skill -->
+  <circle r="5" class="pkt2 pulse"><animateMotion dur="3.2s" begin="0.7s" repeatCount="indefinite"><mpath href="#p_loop_skill"/></animateMotion></circle>
+  <!-- Self-heal loop -->
+  <circle r="4" class="pkt-orange pulse"><animateMotion dur="4.5s" begin="1.5s" repeatCount="indefinite"><mpath href="#p_heal_back"/></animateMotion></circle>
+  <!-- Brain → Response -->
+  <circle r="5.5" class="pkt1 pulse"><animateMotion dur="3.8s" begin="0.6s" repeatCount="indefinite"><mpath href="#p_brain_response"/></animateMotion></circle>
+  <!-- Response → WhatsApp -->
+  <circle r="5" class="pkt3 pulse"><animateMotion dur="3.5s" begin="1.0s" repeatCount="indefinite"><mpath href="#p_response_wa"/></animateMotion></circle>
+  <!-- Schedule → Brain -->
+  <circle r="4.5" class="pkt2 pulse"><animateMotion dur="4.0s" begin="1.8s" repeatCount="indefinite"><mpath href="#p_sched_brain"/></animateMotion></circle>
+  <!-- Python → File -->
+  <circle r="4.5" class="pkt-green pulse"><animateMotion dur="3.6s" begin="1.4s" repeatCount="indefinite"><mpath href="#p_python_file"/></animateMotion></circle>
+
+  <!-- Endpoint glows -->
+  <g class="blink">
+    <circle cx="145" cy="217" r="6" fill="#67e8f9" filter="url(#softGlow)"/>
+    <circle cx="460" cy="217" r="6" fill="#67e8f9" filter="url(#softGlow)"/>
+    <circle cx="785" cy="217" r="6" fill="#67e8f9" filter="url(#softGlow)"/>
+    <circle cx="1085" cy="210" r="7" fill="#34d399" filter="url(#softGlow)"/>
+    <circle cx="1085" cy="460" r="7" fill="#34d399" filter="url(#softGlow)"/>
+    <circle cx="560" cy="645" r="6" fill="#0ea5e9" filter="url(#softGlow)"/>
+    <circle cx="1070" cy="705" r="6" fill="#fb923c" filter="url(#softGlow)"/>
+    <circle cx="1430" cy="645" r="6" fill="#ec4899" filter="url(#softGlow)"/>
+    <circle cx="405" cy="422" r="6" fill="#67e8f9" filter="url(#softGlow)"/>
+    <circle cx="200" cy="778" r="6" fill="#34d399" filter="url(#softGlow)"/>
+    <circle cx="1440" cy="212" r="6" fill="#a78bfa" filter="url(#softGlow)"/>
+  </g>
+
+  <!-- Direction pills -->
+  <g class="blink">
+    <rect x="270" y="178" width="70" height="22" rx="11" class="chip"/><text x="283" y="194" class="chip-text">ingest</text>
+    <rect x="600" y="178" width="72" height="22" rx="11" class="chip"/><text x="611" y="194" class="chip-text">context</text>
+    <rect x="1050" y="310" width="70" height="22" rx="11" class="chip" style="stroke:#34d399"/><text x="1062" y="326" class="chip-text" style="fill:#34d399">tools</text>
+    <rect x="670" y="280" width="68" height="22" rx="11" class="chip"/><text x="683" y="296" class="chip-text">reply</text>
+    <rect x="1285" y="710" width="90" height="22" rx="11" class="chip" style="stroke:#f59e0b"/><text x="1298" y="726" class="chip-text" style="fill:#fbbf24">self-heal</text>
+  </g>
+</svg>
