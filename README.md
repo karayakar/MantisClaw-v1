@@ -6,6 +6,16 @@
 <a href="https://github.com/karayakar/MantisClaw-v1/blob/main/MantisClaw.rar">Download Here</a> 
 </p>
 <p align="center">
+
+
+</p>
+<p align="center">
+  WATCH VIDEO - LEARN - SEE IT  IN ACTION
+</p>
+
+
+[![Watch MantisClaw Demo](https://github.com/karayakar/MantisClaw-v1/blob/main/c34bb133-da6f-4802-92e6-fdca65281527.png)](https://www.youtube.com/watch?v=Kg5qzgYW6t0)
+
  
 </p>
 <p align="center">
