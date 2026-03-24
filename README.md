@@ -1,5 +1,5 @@
 
-<h1>***** Will be open source after 1000 star *****</h1>
+<h1>**** Will be open source after 1000 star ****</h1>
 
 
 <p align="center">
