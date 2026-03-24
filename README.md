@@ -13,7 +13,7 @@
 
 </p>
 <p align="center">
-  WATCH VIDEO - LEARN - SEE IT  IN ACTION
+  WATCH VIDEO - LEARN - SEE IT  IN ACTION.
 </p>
 
 
