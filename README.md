@@ -2,7 +2,10 @@
 
 
 <p align="center">
-  <img src="https://github.com/karayakar/MantisClaw-v1/blob/main/mantis-claw-logo.png" width="600"/>
+  <img src="https://github.com/karayakar/MantisClaw-v1/blob/main/logo_adress.png" width="600"/>
+</p>
+<p align="center">
+  <img src="https://github.com/karayakar/MantisClaw-v1/blob/main/Mantis_Paid_App.png" width="600"/>
 </p>
 <p align="center">
 <a href="https://mantisclaw.yapzek.ai" target="_blank">Download Here</a> 
