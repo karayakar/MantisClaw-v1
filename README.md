@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://mantisclaw.yapzek.ai">🌐 Website</a> &nbsp;·&nbsp;
-  <a href="#-download">⬇️ Download</a> &nbsp;·&nbsp;
+  <a href="https://mantisclaw.yapzek.ai/download" target="_blank">⬇️ Download</a> &nbsp;·&nbsp;
   <a href="#-demo-videos">🎬 Demo Videos</a> &nbsp;·&nbsp;
   <a href="#-platform-screenshots">📸 Screenshots</a>
 </p>
