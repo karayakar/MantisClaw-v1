@@ -22,6 +22,41 @@
 
 MantisClaw integrates autonomous agents across multiple channels so your team can command, automate, and supervise real operations from chat. Use direct or group conversations to run tasks, trigger workflows, and keep execution secure with local-first data control.
 
+
+## 🎬 Demo Videos
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.youtube.com/watch?v=Kg5qzgYW6t0">
+        <img src="https://img.youtube.com/vi/Kg5qzgYW6t0/maxresdefault.jpg" alt="Demo Video 1" width="400" />
+        <br/><strong>▶ Demo Video 1</strong>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.youtube.com/watch?v=gIy7jucDP_k">
+        <img src="https://img.youtube.com/vi/gIy7jucDP_k/maxresdefault.jpg" alt="Demo Video 2" width="400" />
+        <br/><strong>▶ Demo Video 2</strong>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.youtube.com/watch?v=TMKbYffzvG8">
+        <img src="https://img.youtube.com/vi/TMKbYffzvG8/maxresdefault.jpg" alt="Demo Video 3" width="400" />
+        <br/><strong>▶ Demo Video 3</strong>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.youtube.com/watch?v=5ZqhoV3WO_0">
+        <img src="https://img.youtube.com/vi/5ZqhoV3WO_0/maxresdefault.jpg" alt="Demo Video 4" width="400" />
+        <br/><strong>▶ Demo Video 4</strong>
+      </a>
+    </td>
+  </tr>
+</table>
+
+
 ---
 
 ## 🚀 What's New
