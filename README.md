@@ -1,10 +1,13 @@
+
+
+<h1 align="center">🦗 MantisClaw</h1>
+
 <p align="center">
   <a href="https://mantisclaw.yapzek.ai">
     <img src="https://mantisclaw.yapzek.ai/assets/Screenshots/Architecture.png" alt="MantisClaw Architecture" width="100%" />
   </a>
 </p>
 
-<h1 align="center">🦗 MantisClaw</h1>
 <p align="center"><strong>Multi-Platform Autonomous Agent — Control from WhatsApp, Telegram, Slack, and more</strong></p>
 <p align="center"><em>The best GUI Computer Use Agent. No complex setup — just download and run. All features are already built-in.</em></p>
 
