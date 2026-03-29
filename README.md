@@ -1,6 +1,6 @@
 
 
-<h1 align="center">🦗 MantisClaw</h1>
+<h1 align="center">🦗 MantisClaw - First Desktop CUA Agent</h1>
 
 <p align="center">
   <a href="https://mantisclaw.yapzek.ai">
