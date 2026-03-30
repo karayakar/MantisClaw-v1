@@ -1,6 +1,26 @@
 
 
-<h1 align="center">🦗 MantisClaw - First Desktop CUA Agent</h1>
+<h1 align="center">🦗 MantisClaw - Desktop CUA (Computer Use Agent)</h1>
+
+---
+
+## Multi-Platform  - Windows / Linux / Mac OS - Intel / Mac OS Silicon
+
+---
+
+##  Use Computer & Browser
+- Open webcam - Use Real Browser (Pass Cloudflare & bot verifications) -Take Screenshot - scroll - click_button - login - check-email
+  
+---
+## Unlimited Agents
+---
+- Unlimited Scenarios - Unlimited Skills (It writes, debug, executes skills by itself -Self-healing)
+
+### Channels
+Connect and manage multiple messaging channels — WhatsApp, Telegram, Slack, Built-in Chat, Blender Chat .. and more.
+
+![Channels](https://mantisclaw.yapzek.ai/assets/Screenshots/Channels.png)
+
 
 <p align="center">
   <a href="https://mantisclaw.yapzek.ai">
@@ -174,6 +194,16 @@ Watch how a single channel message flows through the MantisClaw engine — from 
 
 ## 📸 Platform Screenshots
 
+
+---
+
+### Channels
+Connect and manage multiple messaging channels — WhatsApp, Telegram, Slack, and more.
+
+![Channels](https://mantisclaw.yapzek.ai/assets/Screenshots/Channels.png)
+
+----
+
 ### Accounts
 Manage all your connected accounts, credentials, and linked services in one centralized dashboard.
 
@@ -242,12 +272,7 @@ Use the built-in chat interface to interact with your agent directly from the Ma
 
 ![Built-in Chat](https://mantisclaw.yapzek.ai/assets/Screenshots/Built-in-chat.png)
 
----
 
-### Channels
-Connect and manage multiple messaging channels — WhatsApp, Telegram, Slack, and more.
-
-![Channels](https://mantisclaw.yapzek.ai/assets/Screenshots/Channels.png)
 
 ---
 
